@@ -3,9 +3,39 @@ version: 2
 
 models:
     - name: joined_tables
-      description: "A starter dbt model for Polygon"
+      description: "This joins the transactions and contract tables to include is_erc20/721 boolean columns"
       columns:
           - name: block_number
             description: "block number of transaction"
             tests:
                 - not_null
+    - name: filter_erc20.sql
+      description: "This filters only transactions which are to erc20"
+    - name: filter_erc721.sql
+      description: "This filters only transactions which are to erc721"
+    - name: filter_nonce_20.sql
+      description: "This filters nonces which are in the top 25% for erc20 route"
+    - name: filter_nonce_721.sql
+      description: "This filters nonces which are in the top 25% for erc721 route"
+    - name: gas_total_20.sql
+      description: "This gets the total gas per day for erc20 route"
+    - name: gas_total_721.sql
+      description: "This gets the total gas per day for erc721 route"
+    - name: weekday_counts_20.sql
+      description: "This gets the total weekday counts for the erc20 route"
+    - name: weekday_counts_721.sql
+      description: "This gets the total weekday counts for the erc721 route"
+    - name: avg_transactions_20.sql
+      description: "This gets the average transactions per weekday for the erc20 route"
+    - name: avg_transactions_721.sql
+      description: "This gets the average transactions per weekday for the erc721 route"
+    - name: avg_gas_total_20.sql
+      description: "This gets the average gas total per weekday for the erc20 route"
+    - name: avg_gas_total_721.sql
+      description: "This gets the average gas total per weekday for the erc721 route"
+    - name: transaction_counts_20.sql
+      description: "This gets the transaction counts per weekday for the erc20 route"
+    - name: transaction_counts_721.sql
+      description: "This gets the transaction counts per weekday for the erc721 route"
+
+
