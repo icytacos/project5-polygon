@@ -5,5 +5,5 @@ FROM(
     SELECT 
         DISTINCT EXTRACT(DAY FROM BLOCK_TIMESTAMP) AS day,
         EXTRACT(DAYOFWEEK FROM BLOCK_TIMESTAMP) AS weekday
-    FROM `project-5-313723.public_data_finance.filter_nonce`
+    FROM {{ref('filter_nonce_20')}}
 ) AS temp GROUP BY weekday
